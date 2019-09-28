@@ -13,11 +13,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Estacionamento implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Carro carro;
+	private Cliente cliente;
 	private Integer quantidadeVagas;
 	private Boolean disponivel = false;
 	@JsonFormat(pattern = "dd-mm-yyyy")
@@ -41,6 +42,14 @@ public class Estacionamento implements Serializable {
 
 	public void setCarro(Carro carro) {
 		this.carro = carro;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public Integer getQuantidadeVagas() {
