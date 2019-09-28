@@ -1,23 +1,19 @@
 package br.com.model;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class Administrador extends Pessoa implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class PagamentoDinheiro extends Pagamento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	private Double preco;
 
-	public Administrador(String nome, String login, String senha, Integer id) {
-		super(nome, login, senha);
-
+	public PagamentoDinheiro(Integer id) {
+		super(id);
+		
 	}
 
 	public Integer getId() {
@@ -26,6 +22,14 @@ public class Administrador extends Pessoa implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 
 }
